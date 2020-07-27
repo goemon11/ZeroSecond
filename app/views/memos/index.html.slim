@@ -11,5 +11,5 @@ table.table.table-hover
   tbody
     - @memos.each do |memo|
       tr
-        td= memo.title
+        td= link_to memo.title, memo_path(memo)
         td= memo.created_at

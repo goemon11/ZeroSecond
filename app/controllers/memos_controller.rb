@@ -4,6 +4,7 @@ class MemosController < ApplicationController
   end
 
   def show
+    @memo = Memo.find(params[:id])
   end
 
   def new

@@ -1,2 +1,24 @@
-h1 Memos#show
-p Find me in app/views/memos/show.html.slim
+h1 メモの詳細
+.nav.justify-content-end
+  = link_to 'メモ一覧', memos_path, class: 'nav-link'
+table.table.table-hover
+  thead.thead-dark
+    tr 
+      th= Memo.human_attribute_name(:項目)
+      th= Memo.human_attribute_name(:内容)
+  tbody
+    tr
+      th= Memo.human_attribute_name(:登録番号)
+      th= @memo.id
+    tr
+      th= Memo.human_attribute_name(:タイトル)
+      td= @memo.title
+    tr
+      th= Memo.human_attribute_name(:メモ書き（詳細）)
+      td= simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Memo.human_attribute_name(:登録日時)
+      td= @memo.created_at
+    tr
+      th= Memo.human_attribute_name(:更新日時)
+      td= @memo.updated_at
