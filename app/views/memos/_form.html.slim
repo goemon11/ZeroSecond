@@ -1,0 +1,9 @@
+= form_with model: @memo, local: true do |f|
+  .form-group
+    =f.label :"タイトル"
+    =f.text_field :title, class: 'form-control', id: 'memo_title'
+  .form-group
+    = f.label :"メモ書き"
+    = f.text_area :description, rows: 10, class: 'form-control', id: 'task_description'
+    = f.submit "保存する", class: 'btn btn-primary mr-5'
+    = link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger ml-5'

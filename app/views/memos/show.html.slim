@@ -8,7 +8,7 @@ table.table.table-hover
       th= Memo.human_attribute_name(:内容)
   tbody
     tr
-      th= Memo.human_attribute_name(:登録番号)
+      th= Memo.human_attribute_name(:保存番号)
       th= @memo.id
     tr
       th= Memo.human_attribute_name(:タイトル)
@@ -17,8 +17,10 @@ table.table.table-hover
       th= Memo.human_attribute_name(:メモ書き（詳細）)
       td= simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div")
     tr
-      th= Memo.human_attribute_name(:登録日時)
+      th= Memo.human_attribute_name(:保存日時)
       td= @memo.created_at
     tr
       th= Memo.human_attribute_name(:更新日時)
       td= @memo.updated_at
+= link_to 'メモ編集', edit_memo_path, class: 'btn btn-primary mr-3'
+= link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'
