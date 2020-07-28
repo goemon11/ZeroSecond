@@ -1,10 +1,10 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.all
+    @memos = current_user.memos
   end
 
   def show
-    @memo = Memo.find(params[:id])
+    @memo = current_user.memos.find(params[:id])
   end
 
   def new
@@ -12,11 +12,11 @@ class MemosController < ApplicationController
   end
 
   def edit
-    @memo = Memo.find(params[:id])
+    @memo = current_user.memos.find(params[:id])
   end
 
   def create
-    memo = Memo.new(memo_params)
+    memo = Memo.new(memo_params.merge(user_id: current_user.id))
     memo.save!
     redirect_to memos_url, notice: "メモ：タイトル「#{memo.title}」を保存しました。"
   end
@@ -28,7 +28,7 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    memo = Memo.find(params[:id])
+    memo = current_user.memos.find(params[:id])
     memo.destroy
     redirect_to memos_url, notice: "メモ：タイトル「#{memo.title}」を削除しました。"
   end
