@@ -1,0 +1,29 @@
+h1 ユーザー登録の詳細
+.nav.justify-content-end
+  = link_to 'ユーザー登録一覧', admin_users_path, class: 'nav-link'
+table.table.table-hover
+  thead.thead-dark
+    tr 
+      th= User.human_attribute_name(:項目)
+      th= User.human_attribute_name(:内容)
+  tbody
+    tr
+      th= User.human_attribute_name(:登録番号)
+      td= @user.id
+    tr
+      th= User.human_attribute_name(:ユーザー名)
+      td= @user.name
+    tr
+      th= User.human_attribute_name(:メールアドレス)
+      td= @user.email
+    tr
+      th= User.human_attribute_name(:管理者)
+      td= @user.admin? ? 'あり' : 'なし'
+    tr
+      th= User.human_attribute_name(:登録日時)
+      td= @user.created_at
+    tr
+      th= User.human_attribute_name(:更新日時)
+      td= @user.updated_at
+= link_to 'ユーザー編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
+= link_to 'ユーザー削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー：「#{@user.name}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'

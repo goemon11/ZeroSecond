@@ -1,0 +1,7 @@
+h1 ユーザー登録
+
+=form_with model: [:admin, @user], local: true do |f|
+.nav.justify-content-end
+  = link_to 'ユーザー登録一覧', admin_users_path, class: 'nav-link'
+
+= render partial: 'form', locals: { user: @user }
