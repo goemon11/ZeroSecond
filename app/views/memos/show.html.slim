@@ -15,9 +15,9 @@ table.table.table-hover
       td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
       th= Memo.human_attribute_name(:登録日時)
-      td= @memo.created_at
+      td= @memo.created_at.strftime("%Y年%m月%d日 %H時%M分")
     tr
       th= Memo.human_attribute_name(:更新日時)
-      td= @memo.updated_at
+      td= @memo.updated_at.strftime("%Y年%m月%d日 %H時%M分")
 = link_to 'メモ編集', edit_memo_path, class: 'btn btn-primary mr-3'
 = link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'
