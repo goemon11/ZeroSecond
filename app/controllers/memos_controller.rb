@@ -1,10 +1,11 @@
 class MemosController < ApplicationController
+  before_action :set_memo , only: [:show, :edit, :update, :destroy]
+  
   def index
-    @memos = current_user.memos
+    @memos = current_user.memos.order(created_at: :desc)
   end
 
   def show
-    @memo = current_user.memos.find(params[:id])
   end
 
   def new
@@ -12,7 +13,6 @@ class MemosController < ApplicationController
   end
 
   def edit
-    @memo = current_user.memos.find(params[:id])
   end
 
   def create
@@ -22,15 +22,13 @@ class MemosController < ApplicationController
   end
 
   def update
-    memo = Memo.find(params[:id])
-    memo.update!(memo_params)
-    redirect_to memos_url, notice: "メモ：タイトルy「#{memo.title}」を更新しました。"
+    @memo.update!(memo_params)
+    redirect_to memos_url, notice: "メモ：タイトル「#{@memo.title}」を更新しました。"
   end
 
   def destroy
-    memo = current_user.memos.find(params[:id])
-    memo.destroy
-    redirect_to memos_url, notice: "メモ：タイトル「#{memo.title}」を削除しました。"
+    @memo.destroy
+    redirect_to memos_url, notice: "メモ：タイトル「#{@memo.title}」を削除しました。"
   end
   private
 
@@ -38,4 +36,7 @@ class MemosController < ApplicationController
     params.require(:memo).permit(:title, :description)
   end
 
+  def set_memo
+    @memo = current_user.memos.find(params[:id])
+  end
 end
