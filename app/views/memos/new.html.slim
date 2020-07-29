@@ -3,4 +3,16 @@ h1 メモの新規登録
 .nav.justify-content-end
   = link_to 'メモ一覧', memos_path, class: 'nav-link'
 
-= render partial: 'form', locals: { memo: @memo }
+- if @memo.errors.present?
+  ul#error_explanation, 
+    - @memo.errors.full_messages.each.do |message|
+      li = message
+= form_with model: @memo, local: true, url: confirm_new_memo_path do |f|
+  .form-group
+    .form-group
+    =f.label :"タイトル"
+    =f.text_field :title, class: 'form-control', id: 'memo_title', placeholder: '⚠️コロンマーク（,）は使えません'
+  .form-group
+    = f.label :"メモ書き欄"
+    = f.text_area :description, rows: 10, class: 'form-control', id: 'task_description'
+  =f.submit '確認', class: 'btn btn-primary'

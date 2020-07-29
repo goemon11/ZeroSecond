@@ -16,9 +16,18 @@ class MemosController < ApplicationController
   end
 
   def create
-    memo = Memo.new(memo_params.merge(user_id: current_user.id))
-    memo.save!
-    redirect_to memos_url, success: "メモ：タイトル「#{memo.title}」を保存しました。"
+    @memo = current_user.memos.new(memo_params)
+    
+    if params[:back].present?
+      render :new
+      return
+    end
+    
+    if @memo.save
+      redirect_to @memo, success: "メモ：タイトル「#{@memo.title}」を保存しました。"
+    else  
+      render :new
+    end
   end
 
   def update
@@ -29,6 +38,10 @@ class MemosController < ApplicationController
   def destroy
     @memo.destroy
     redirect_to memos_url, success: "メモ：タイトル「#{@memo.title}」を削除しました。"
+  end
+  def confirm_new
+    @memo = current_user.memos.new(memo_params)
+    render :new unless @memo.valid?
   end
   private
 
