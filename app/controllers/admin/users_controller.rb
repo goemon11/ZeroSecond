@@ -12,7 +12,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
+    if current_user.admin?
     @user = User.all
+    else
+      redirect_to memos_path, notice: "このユーザーには権限がありません"
+    end
   end
   def create
     @user = User.new(user_params)
