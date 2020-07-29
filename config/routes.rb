@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     resources :users
   end
   root to: 'memos#index'
+  resources :memos do 
+    post :confirm, action: :confirm_new, on: :new
+  end
   resources :memos
 end

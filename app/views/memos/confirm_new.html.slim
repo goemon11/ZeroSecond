@@ -1,0 +1,19 @@
+h1 保存内容の確認
+
+= form_with model: @memo, local: true do |f|
+  table.table.table-hover
+    thead.thead-dark
+      tr 
+        th= Memo.human_attribute_name(:項目)
+        th= Memo.human_attribute_name(:内容)
+      tbody
+      tr
+        th= Memo.human_attribute_name(:タイトル)
+        td= @memo.title
+        = f.hidden_field :title
+      tr
+        th= Memo.human_attribute_name(:メモ欄)
+        td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
+        = f.hidden_field :description
+  = f.submit '戻る', name: 'back', class: 'btn btn-secondary mr-3'
+  = f.submit '保存する', class: 'btn btn-primary'
