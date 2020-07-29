@@ -1,5 +1,14 @@
 h1 メモ一覧
 
+= search_form_for @q, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :title_cont, 'タイトル名：', class: 'col-sm-2 col-form-label'
+    .col-sm-8
+      = f.search_field :title_cont, class: 'form-control'
+      =f.submit class: 'btn btn-outline-primary m-2'
+
+
+
 = link_to '新規登録', new_memo_path, class: 'btn btn-primary'
 
 .mb-3
