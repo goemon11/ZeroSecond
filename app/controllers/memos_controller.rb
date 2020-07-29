@@ -18,17 +18,17 @@ class MemosController < ApplicationController
   def create
     memo = Memo.new(memo_params.merge(user_id: current_user.id))
     memo.save!
-    redirect_to memos_url, notice: "メモ：タイトル「#{memo.title}」を保存しました。"
+    redirect_to memos_url, success: "メモ：タイトル「#{memo.title}」を保存しました。"
   end
 
   def update
     @memo.update!(memo_params)
-    redirect_to memos_url, notice: "メモ：タイトル「#{@memo.title}」を更新しました。"
+    redirect_to memos_url, success: "メモ：タイトル「#{@memo.title}」を更新しました。"
   end
 
   def destroy
     @memo.destroy
-    redirect_to memos_url, notice: "メモ：タイトル「#{@memo.title}」を削除しました。"
+    redirect_to memos_url, success: "メモ：タイトル「#{@memo.title}」を削除しました。"
   end
   private
 
