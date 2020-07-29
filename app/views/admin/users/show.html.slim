@@ -17,7 +17,7 @@ table.table.table-hover
       th= User.human_attribute_name(:メールアドレス)
       td= @user.email
     tr
-      th= User.human_attribute_name(:管理者)
+      th= User.human_attribute_name(:管理者権限)
       td= @user.admin? ? 'あり' : 'なし'
     tr
       th= User.human_attribute_name(:登録日時)
@@ -25,5 +25,5 @@ table.table.table-hover
     tr
       th= User.human_attribute_name(:更新日時)
       td= @user.updated_at
-= link_to 'ユーザー編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
+= link_to 'ユーザー編集', edit_admin_user_path, class: 'btn btn-primary'
 = link_to 'ユーザー削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー：「#{@user.name}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'

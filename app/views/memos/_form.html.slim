@@ -1,7 +1,7 @@
 = form_with model: @memo, local: true do |f|
   .form-group
     =f.label :"タイトル"
-    =f.text_field :title, class: 'form-control', id: 'memo_title'
+    =f.text_field :title, class: 'form-control', id: 'memo_title', placeholder: '⚠️コロンマーク（,）は使えません'
   .form-group
     = f.label :"メモ書き"
     = f.text_area :description, rows: 10, class: 'form-control', id: 'task_description'

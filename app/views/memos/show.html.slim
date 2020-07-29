@@ -8,14 +8,11 @@ table.table.table-hover
       th= Memo.human_attribute_name(:内容)
   tbody
     tr
-      th= Memo.human_attribute_name(:保存番号)
-      th= @memo.id
-    tr
       th= Memo.human_attribute_name(:タイトル)
       td= @memo.title
     tr
       th= Memo.human_attribute_name(:メモ（詳細）)
-      td= simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div")
+      td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
       th= Memo.human_attribute_name(:登録日時)
       td= @memo.created_at
