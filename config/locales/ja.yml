@@ -7,13 +7,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      memo : メモ     
   attributes:
-    # memo:
-    #   memo:　メモ
+    memo:
+    #
     #   id: ID
     #   title: タイトル
     #   description: メモ書き（詳細）
-    #   created_at: 登録時間
+    created_at: 登録日時
     #   updated_at: 更新時間
     #   list: 項目
     #   contents: 内容

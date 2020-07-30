@@ -8,7 +8,7 @@ h1 メモ一覧
   .form-group.row
     = f.label :created_at_gteq, '登録日時：', class: 'col-sm-2 col-form-label'
     .col-sm-8
-      = f.search_field :created_at_gteq, class: 'form-control', placeholder: '⚠️検索した日時以降すべてのメモが出ます。'
+      = f.search_field :created_at_gteq, class: 'form-control', placeholder: '⚠️登録日時以降全てのメモが検索されます。'
       =f.submit class: 'btn btn-outline-primary m-2'
 
 
@@ -20,7 +20,7 @@ table.table.table-hover
   thead.thead-dark
     tr
       th= Memo.human_attribute_name(:タイトル)
-      th= Memo.human_attribute_name(:登録日時)
+      th= sort_link(@q, :created_at)
       th
   tbody
     - @memos.each do |memo|
