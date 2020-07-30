@@ -2,7 +2,8 @@ class MemosController < ApplicationController
   before_action :set_memo , only: [:show, :edit, :update, :destroy]
   
   def index
-    @memos = current_user.memos.order(created_at: :desc)
+    @q = current_user.memos.ransack(params[:q])
+    @memos = @q.result(distinct: true).recent 
   end
 
   def show

@@ -1,5 +1,18 @@
 h1 メモ一覧
 
+= search_form_for @q, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :title_cont, 'タイトル名：', class: 'col-sm-2 col-form-label'
+    .col-sm-8
+      = f.search_field :title_cont, class: 'form-control'
+  .form-group.row
+    = f.label :created_at_gteq, '登録日時：', class: 'col-sm-2 col-form-label'
+    .col-sm-8
+      = f.search_field :created_at_gteq, class: 'form-control', placeholder: '⚠️登録日時以降全てのメモが検索されます。'
+      =f.submit class: 'btn btn-outline-primary m-2'
+
+
+
 = link_to '新規登録', new_memo_path, class: 'btn btn-primary'
 
 .mb-3
@@ -7,7 +20,7 @@ table.table.table-hover
   thead.thead-dark
     tr
       th= Memo.human_attribute_name(:タイトル)
-      th= Memo.human_attribute_name(:登録日時)
+      th= sort_link(@q, :created_at)
       th
   tbody
     - @memos.each do |memo|
