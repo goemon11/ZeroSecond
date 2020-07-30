@@ -4,6 +4,8 @@ class MemosController < ApplicationController
   def index
     @q = current_user.memos.ransack(params[:q])
     @memos = @q.result(distinct: true).order(created_at: :desc) 
+    
+    
   end
 
   def show
