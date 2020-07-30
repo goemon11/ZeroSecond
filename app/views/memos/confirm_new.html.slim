@@ -15,5 +15,9 @@ h1 保存内容の確認
         th= Memo.human_attribute_name(:メモ欄)
         td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
         = f.hidden_field :description
+      tr
+        th= Memo.human_attribute_name(:画像)
+        td= image_tag(@memo.image.url)if @memo.image && @memo.image.url
+        =f.hidden_field :image_cache
   = f.submit '戻る', name: 'back', class: 'btn btn-secondary mr-3'
   = f.submit '保存する', class: 'btn btn-primary'

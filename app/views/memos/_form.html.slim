@@ -5,5 +5,8 @@
   .form-group
     = f.label :"メモ書き欄"
     = f.text_area :description, rows: 10, class: 'form-control', id: 'task_description'
+  .form-group
+    = f.label :"画像"
+    = f.file_field :image, class: 'form-control'
     = f.submit "保存する", class: 'btn btn-primary mr-5'
     = link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger ml-5'

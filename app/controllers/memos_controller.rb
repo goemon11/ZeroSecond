@@ -19,6 +19,7 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.new(memo_params)
     
+
     if params[:back].present?
       render :new
       return
@@ -47,7 +48,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:title, :description)
+    params.require(:memo).permit(:title, :description, :image, :image_cache)
   end
 
   def set_memo
