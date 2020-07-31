@@ -18,7 +18,7 @@ h1 メモ一覧
 .mb-3
   =paginate @memos
   =page_entries_info @memos
-table.table.table-hover
+table.table.table-bordered
   thead.thead-dark
     tr
       th= Memo.human_attribute_name(:title)
