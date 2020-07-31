@@ -13,10 +13,11 @@ ja:
     memo:
     #
     #   id: ID
-    #   title: タイトル
-    #   description: メモ書き（詳細）
+    title: タイトル
+    description: メモ書き欄
     created_at: 登録日時
-    #   updated_at: 更新時間
+    updated_at: 更新日時
+    image: 画像
     #   list: 項目
     #   contents: 内容
     # user:

@@ -3,7 +3,7 @@ class MemosController < ApplicationController
   
   def index
     @q = current_user.memos.ransack(params[:q])
-    @memos = @q.result(distinct: true).recent 
+    @memos = @q.result(distinct: true).page(params[:page])
   end
 
   def show

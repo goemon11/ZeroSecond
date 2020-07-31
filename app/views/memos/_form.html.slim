@@ -1,12 +1,12 @@
 = form_with model: @memo, local: true do |f|
   .form-group
-    =f.label :"タイトル"
+    =f.label :title
     =f.text_field :title, class: 'form-control', id: 'memo_title', placeholder: '⚠️コロンマーク（,）は使えません'
   .form-group
-    = f.label :"メモ書き欄"
+    = f.label :description
     = f.text_area :description, rows: 10, class: 'form-control', id: 'task_description'
   .form-group
-    = f.label :"画像"
+    = f.label :image
     = image_tag(@memo.image.url)if @memo.image && @memo.image.url
     = f.file_field :image, class: 'form-control'
     = f.hidden_field :image_cache
