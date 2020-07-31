@@ -8,15 +8,15 @@ h1 保存内容の確認
         th= Memo.human_attribute_name(:内容)
       tbody
       tr
-        th= Memo.human_attribute_name(:タイトル)
+        th= Memo.human_attribute_name(:title)
         td= @memo.title
         = f.hidden_field :title
       tr
-        th= Memo.human_attribute_name(:メモ欄)
+        th= Memo.human_attribute_name(:description)
         td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
         = f.hidden_field :description
       tr
-        th= Memo.human_attribute_name(:画像)
+        th= Memo.human_attribute_name(:image)
         td= image_tag(@memo.image.url)if @memo.image && @memo.image.url
         =f.hidden_field :image_cache
   = f.submit '戻る', name: 'back', class: 'btn btn-secondary mr-3'

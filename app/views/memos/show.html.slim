@@ -8,19 +8,19 @@ table.table.table-hover
       th= Memo.human_attribute_name(:内容)
   tbody
     tr
-      th= Memo.human_attribute_name(:タイトル)
+      th= Memo.human_attribute_name(:title)
       td= @memo.title
     tr
-      th= Memo.human_attribute_name(:メモ（詳細）)
+      th= Memo.human_attribute_name(:description)
       td= auto_link(simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
-      th= Memo.human_attribute_name(:画像)
-      td= image_tag @memo.image.url
+      th= Memo.human_attribute_name(:image)
+      td= image_tag @memo.image.url if @memo.image.url.present?
     tr
       th= Memo.human_attribute_name(:created_at)
       td= @memo.created_at.strftime("%Y年%m月%d日 %H時%M分")
     tr
-      th= Memo.human_attribute_name(:更新日時)
+      th= Memo.human_attribute_name(:updated_at)
       td= @memo.updated_at.strftime("%Y年%m月%d日 %H時%M分")
 = link_to 'メモ編集', edit_memo_path, class: 'btn btn-primary mr-3'
 = link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'
