@@ -24,4 +24,4 @@ table.table.table-bordered
         td= user.updated_at.strftime("%Y年%m月%d日 %H時%M分")
         td
           = link_to 'ユーザー登録編集', edit_admin_user_path(user), class: 'btn btn-primary '
-          = link_to 'ユーザー登録削除',[:admin, user] , method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger '
+          = link_to 'ユーザー登録削除',[:admin, user] , method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger'

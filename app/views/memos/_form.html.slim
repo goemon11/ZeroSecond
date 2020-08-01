@@ -11,4 +11,3 @@
     = f.file_field :image, class: 'form-control'
     = f.hidden_field :image_cache
     = f.submit "保存する", class: 'btn btn-primary mr-5'
-    = link_to 'メモ削除', @memo, method: :delete, data: { confirm: "メモ：タイトル「#{@memo.title}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger ml-5'
