@@ -39,7 +39,8 @@ class MemosController < ApplicationController
 
   def destroy
     @memo.destroy
-    redirect_to memos_url, success: "メモ：タイトル「#{@memo.title}」を削除しました。"
+    @memo_id = @memo.id
+    @msg = "メモのタイトル：#{@memo.title}の削除が成功しました。"
   end
   def confirm_new
     @memo = current_user.memos.new(memo_params)

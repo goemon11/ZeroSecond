@@ -22,6 +22,7 @@ html
         - else 
           li.nav-item = link_to 'ログイン', login_path, method: :get, class: 'nav-link'
     .container
+      div id="alert-message"
       - flash.each do |key, value|
         - key = "info" if key == "notice"
         - key = "danger"  if key == "alert"
