@@ -1,6 +1,6 @@
 class Memo < ApplicationRecord
   mount_uploader :image, ImageUploader
-  validates :title, presence: true, length: {maximum: 50}
+  validates :title, presence: true
   validate :validate_title_not_include_comma
   def self.ransackable_attributes(_auth_object = nil)
     %w[title created_at]
