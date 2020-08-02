@@ -2,14 +2,15 @@ h1 メモの新規登録
 
 .nav.justify-content-end
   = link_to 'メモ一覧', memos_path, class: 'nav-link'
-= form_with  name:'timer' do |f|
-  = f.text_field :minutes
-  分
-  = f.text_field :secnods
-  秒
-  br
-  =f.submit 'スタート', onclick: "contStart()", class: 'm-3'
-  =f.submit 'ストップ', onclick: "cntStop()", class: 'm-3'
+.timer__input
+  form name= "timer"
+    input type= "text" value= ""
+    分
+    input type= "text" value= ""
+    秒
+    br/
+    input type= "button" value= "スタート" onclick="cntStart()" class= "m-3"
+    input type= "button" value= "ストップ" onclick="cntStop()"  class= "m-3"
 - if @memo.errors.present?
   ul#error_explanation!
     "タイトルを入力してください"!
