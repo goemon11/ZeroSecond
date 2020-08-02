@@ -80,4 +80,6 @@ test:
 #
 production:
   <<: *default
-      url: <%= ENV['DATABASE_URL'] %>
+  database: Zeromemo_production
+  username: Zeromemo
+  password: <%= ENV['ZEROMEMO_DATABASE_PASSWORD'] %>
