@@ -1,7 +1,7 @@
 # README
 <img src="https://img.shields.io/badge/ruby-2.6.5-green.svg?longCache=true"> <img src="https://img.shields.io/badge/-heroku-yellow.svg?longCache=true"> <img src="https://img.shields.io/badge/PostgreSQL-12.3-orange.svg?longCache=true"> <img src="https://img.shields.io/badge/-jquery-blue.svg?longCache=true">
 
-## Zeromemo
+## ZeroSeconds
 タイマー付きのメモアプリです。タイマーをつけて、クリエイティブな思考力をあげるためのトレーニングアプリです。
 
 ## The reason of creating this application
@@ -20,14 +20,32 @@
 タイマーなしでも、通常のメモアプリケーションとしても使用することが可能です。
 
 ## Link to our app
-## [Zeromemo](https://zero-memo.herokuapp.com)
+<img width="121" alt="スクリーンショット 2020-08-31 11 15 13" src="https://user-images.githubusercontent.com/67772172/91676622-68348a80-eb7b-11ea-85df-ea5ec7b1ccb8.png">
+
+## [ZeroSeconds](https://zero-memo.herokuapp.com)
 
 ## DEMO
 - メモ一覧画面
+
+<img width="300" alt="スクリーンショット 2020-08-31 10 46 07" src="https://user-images.githubusercontent.com/67772172/91677521-ee51d080-eb7d-11ea-8dc0-ac196bbb33fe.gif">
+
+
 - ユーザー管理画面
+
+<img width="300" alt="スクリーンショット 2020-08-31 10 46 07" src="https://user-images.githubusercontent.com/67772172/91676790-f1e45800-eb7b-11ea-89eb-1aaf21cebf72.png">
+
 - メモ新規作成画面
+
+<img width="300" alt="スクリーンショット 2020-08-31 10 47 03" src="https://user-images.githubusercontent.com/67772172/91677038-8a7ad800-eb7c-11ea-9b8a-174a9f38f5c7.png">
+
 - タイマー機能画面
-- 一時保存画面
+
+<img width="300" alt="スクリーンショット 2020-08-31 10 48 13" src="https://user-images.githubusercontent.com/67772172/91676952-5acbd000-eb7c-11ea-84da-9dcc0c80a8ba.png">
+
+
+- メモ確認画面
+
+<img width="300" alt="スクリーンショット 2020-08-31 10 48 28" src="https://user-images.githubusercontent.com/67772172/91676875-2e17b880-eb7c-11ea-8b4b-0f61cbe3beb8.png">
 
 
 ## Test User
@@ -37,13 +55,6 @@
 
 ## Caution
 - テストアカウントは、メモ書きのみ体験可能です。ユーザー管理（登録/編集/削除）に関しては、セキュリティー上不可になっております。
-
-## Demo
-- ログイン画面
-- メモ一覧画面
-- メモ作成画面
-- メモ確認画面
-- アカウント管理画面
 
 
 ## Features
